@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function sum(x,y,z){
+    //     let total = 0;
+    //     if(x)total+=x;
+    //     if(y)total+=y;
+    //     if(z)total+=z;
+    //     console.log(`total,${total}`);
+    // }
+    // sum(2,null,4)
+
+    // function sum(...rest){
+    //     return eval(rest.join('+'));
+    // }
+    // console.log(sum(2,3,4,5,6))
+
+    let sum = (...rest)=>eval(rest.join('+'));
+    console.log(sum(...[2,3,4]));
+    // console.log(sum(2,3,4));
+    // console.log(...[2,3,4]);
+
+
+    //合并数组
+    let arr1 = [1,4];
+    let arr2 = [4,8];
+    let arr3 =  arr1.concat(arr2);
+    let arr4 = [...arr1,...arr2];
+
+    //promise解决的问题就是：callback太多了
+
+    let checkLogin = function(){
+        new Promise(function(resolve,reject){
+            let flag = document.cookie.indexOf('userId') > -1?true:false;
+            if(flag){
+                resolve({
+                    status:0,
+                    result:true
+                })
+            }else{
+                reject({
+                    status:1,
+                    result:false
+                })
+            }
+        })
+    }
+
+    checkLogin().then(function(res){
+        if(res.status===0){
+            console.log('login success')
+        }
+    }).catch((error)=>{
+        console.log('error');
+    })
+    </script>
+</body>
+</html>
