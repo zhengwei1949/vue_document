@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userName">
+    <span id="uName"></span>
+    <script>
+    var obj = {
+        pwd:'123456'
+    };
+    var a = '';
+    Object.defineProperty(obj,'userName',{
+        get:function(){
+            return a;
+        },
+        set:function(val){
+            console.log('set init');
+            a = val;
+            document.getElementById('uName').innerHTML = val;
+            document.getElementById('userName').value = val;
+        }
+    });
+    document.getElementById('userName').addEventListener('keyup',function(event){
+        obj.userName = event.target.value;
+    })
+    </script>
+</body>
+</html>
