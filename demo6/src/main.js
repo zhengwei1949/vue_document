@@ -9,6 +9,12 @@ import router from './router'
 // console.log(aaa);
 // import a,{c,d} from './ceshi';
 // console.log(a,c,d)
+import MyPlugin from './myplugin';
+Vue.use(MyPlugin);
+Vue.myGlobalMethod()
+
+
+
 
 
 
@@ -17,6 +23,9 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   // el: '#app',
+  created(){
+    this.$myMethod();
+  }, 
   router,
   template: '<App/>',
   // components: { App }
