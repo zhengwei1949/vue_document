@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+    span{
+        display: inline-block;/*行内样式用不了的*/
+        padding:20px;
+        border:1px solid blue;
+    }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="隐藏和显示" @click="toggle"><br>
+        <transition name="eric" enter-active-class="animated fadeInRight" leave-active-class="animated fadeInRight">
+            <span v-show="isShow">{{msg}}</span>
+        </transition>
+    </div>
+    <script>
+        //思考：我们如果只想要进入的效果，不想要离开的效果怎么办?我们可以让leave-active-class和enter-active-class一样，但是还是有一些bug
+        //如何解决这个bug，每次动画结束的时候我们要手动的把isShow再次的设置成
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isShow:false,
+                msg:'hello vue'
+            },
+            methods:{
+                toggle(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

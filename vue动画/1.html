@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .eric-enter {
+            padding-left: 100px;
+        }
+
+        .eric-enter-active {
+            transition: all 1s ease;
+        }
+
+        .eric-enter-to {
+            padding-left: 10px;
+        }
+
+        .eric-leave {}
+
+        .eric-leave-active {
+            transition: all 1s ease;
+        }
+
+        .eric-leave-to {
+            padding-left: 100px;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="隐藏和显示" @click="toggle">
+        <br>
+        <transition name="eric">
+            <span v-show="isShow">{{msg}}</span>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isShow: false,
+                msg: 'hello vue'
+            },
+            methods: {
+                toggle() {
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
