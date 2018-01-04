@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p id="ceshi">{{a}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el:'#app',
+        methods:{
+            show:function(){
+                console.log('显示');
+            }
+        },
+        data:{
+            a:100
+        },
+        beforeCreate:function(){
+            console.log('=========beforeCreate start ===============')
+            console.log('数据为' + this.a);
+            console.log('元素的innerText为' + document.getElementById('ceshi').innerText);
+            console.log('=========beforeCreate end ===============')
+            console.log('                       ');
+            console.log('                       ');
+        },
+        created:function(){
+            console.log('=========created start ===============')
+            console.log('数据为' + this.a);
+            console.log('元素的innerText为' + document.getElementById('ceshi').innerText);
+            console.log('=========created end ===============')
+            console.log('                       ');
+            console.log('                       ');
+        },
+        beforeMount:function(){
+            console.log('=========beforeMount start ===============')
+            console.log('数据为' + this.a);
+            console.log('元素的innerText为' + document.getElementById('ceshi').innerText);
+            console.log('=========beforeMount end ===============')
+            console.log('                       ');
+            console.log('                       ');
+        },
+        mounted:function(){
+            console.log('=========mounted start ===============')
+            console.log('数据为' + this.a);
+            console.log('元素的innerText为' + document.getElementById('ceshi').innerText);
+            console.log('=========mounted end ===============')
+            console.log('                       ');
+            console.log('                       ');
+        },
+        beforeUpdate:function(){
+            console.log('=========beforeUpdate start ===============')
+            console.log('数据为' + this.a);
+            console.log('元素的innerText为' + document.getElementById('ceshi').innerText);
+            console.log('=========beforeUpdate end ===============')
+            console.log('                       ');
+            console.log('                       ');
+        },
+        updated:function(){
+            console.log('=========updated start ===============')
+            console.log('数据为'+this.a);
+            console.log('元素的innerText为'+document.getElementById('ceshi').innerText);
+            console.log('=========updated end ===============')
+            console.log('                       ');
+            console.log('                       ');
+        },
+        beforeDestroy:function(){
+            
+        },
+        destroyed:function(){
+
+        }
+    })
+    </script>
+</body>
+</html>

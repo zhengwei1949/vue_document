@@ -27,6 +27,7 @@
     <script>
         //思考：我们如果只想要进入的效果，不想要离开的效果怎么办?我们可以让leave-active-class和enter-active-class一样，但是还是有一些bug
         //如何解决这个bug，每次动画结束的时候我们要手动的把isShow再次的设置成
+        //或者我们可以只需要enter-active-class,不要leave-active-class,但是需要做的事情是每次点击之后手动的把isShow设置成false
         var vm = new Vue({
             el: '#app',
             data: {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #demo{
+        width:300px;
+        height:300px;
+        border:1px solid black;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="demo" v-demo="'blue'"></div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+    Vue.directive('demo',{
+        bind:function(el,binding){//这块可以用来处理html和css
+            el.style.backgroundColor = binding.value;
+            el.onclick = function(){//这个事件绑定是无效的
+                console.log('111');
+            }
+        },
+        inserted:function(el,binding){//这里可以用来处理js事件
+            el.onclick = function(){
+                console.log(222);
+            }
+        }
+    })
+    var vm = new Vue({
+        el:'#app'
+    })
+    </script>
+</body>
+</html>
